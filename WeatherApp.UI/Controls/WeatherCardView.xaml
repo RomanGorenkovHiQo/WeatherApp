@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModels="clr-namespace:WeatherApp.Core.ViewModels;assembly=WeatherApp.Core"
+    x:DataType="viewModels:WeatherViewModel"
+    x:Class="WeatherApp.UI.Controls.WeatherCardView">
+
+  <Frame Style="{StaticResource Card}" Padding="16" CornerRadius="20" HasShadow="True">
+    <Grid ColumnDefinitions="*,*"
+          RowDefinitions="2*,*,*"
+          RowSpacing="0"
+          ColumnSpacing="16">
+
+      <!-- 1, 1 -->
+      <Label Grid.Row="0" Grid.Column="0"
+             Text="{Binding TemperatureC, StringFormat='{}{0:0}°'}"
+             Style="{StaticResource TitleLarge}"
+             VerticalOptions="Start" />
+        
+
+      <!-- 1, 2 -->
+      <VerticalStackLayout Spacing="6" Grid.Row="0" Grid.Column="1" >
+        <Label Text="{Binding City}" 
+               Style="{StaticResource H2}" 
+               HorizontalTextAlignment="End"/>
+        <Label Text="{Binding LocalTime, StringFormat='{}{0:HH:mm}'}"
+               Style="{StaticResource Caption}"
+               HorizontalTextAlignment="End" />
+      </VerticalStackLayout>
+
+      <!-- 2, 1 -->
+      <HorizontalStackLayout Grid.Row="1" Grid.Column="0" Spacing="8">
+        <Image
+          Source="{Binding Condition, Converter={StaticResource ConditionToIconConverter}}"
+          HeightRequest="40" WidthRequest="40" />
+        <Label
+          Text="{Binding Condition, Converter={StaticResource ConditionToTitleConverter}}"
+          Style="{StaticResource Caption}" 
+          VerticalOptions="Center"/>
+      </HorizontalStackLayout>
+
+      <!-- 2, 2 -->
+      <HorizontalStackLayout Grid.Row="1" Grid.Column="1" 
+                             Spacing="6"
+                             HorizontalOptions="End">
+        <Image Source="wind.png" HeightRequest="40" WidthRequest="40" />
+        <Label Text="{Binding WindMs, StringFormat='{}{0:0.##} m/s'}"
+               Style="{StaticResource Caption}" 
+               VerticalOptions="Center"/>
+      </HorizontalStackLayout>
+
+      <!-- 3, 1 -->
+      <Label Grid.Row="2" Grid.Column="0"
+             Text="{Binding FeelsLikeC, StringFormat='Feels like: {0:0} °C'}"
+             Style="{StaticResource Caption}" />
+
+      <!-- 3, 2 -->
+      <Label Grid.Row="2" Grid.Column="1"
+             HorizontalTextAlignment="End">
+        <Label.FormattedText>
+          <FormattedString>
+            <Span Text="{Binding MinC, StringFormat='{}{0:0}°'}" 
+                  Style="{StaticResource Caption}"/>
+            <Span Text=" to " 
+                  Style="{StaticResource Caption}"/>
+            <Span Text="{Binding MaxC, StringFormat='{}{0:0}°'}" 
+                  Style="{StaticResource Caption}"/>
+          </FormattedString>
+        </Label.FormattedText>
+      </Label>
+    </Grid>
+  </Frame>
+</ContentView>
