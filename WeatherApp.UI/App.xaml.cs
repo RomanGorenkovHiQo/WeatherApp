@@ -1,11 +1,16 @@
-﻿namespace WeatherApp.UI;
+﻿using System.Diagnostics;
+
+namespace WeatherApp.UI;
 
 public partial class App : Application
 {
-    public App()
+    public App(MainPage mainPage)
     {
         InitializeComponent();
 
-        MainPage = new AppShell();
+        MainPage = new NavigationPage(mainPage);
+        
+        
+        // MainPage = new AppShell();
     }
 }

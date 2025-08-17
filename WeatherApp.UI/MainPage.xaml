@@ -7,14 +7,43 @@
 
     <ScrollView>
         <VerticalStackLayout Padding="30" Spacing="20">
-            <Button Text="Show Weather"
-                    Command="{Binding LoadWeatherCommand}" />
-
-            <Label Text="{Binding WeatherText}" 
-                   FontSize="20"
-                   HorizontalOptions="Center" />
-            <controls:WeatherCardView x:Name="WeatherCard" BindingContext="{Binding Source={x:Reference Root}, Path=Weather}"/>
+            <Label Text="Loooool"></Label>
+            <!-- <controls:SearchBarView -->
+            <!--     Query="{Binding Query}"  -->
+            <!--     SearchCommand="{Binding SearchCommand}"/>            -->
+            <!-- <Button Text="Show Weather" -->
+            <!--         Command="{Binding LoadWeatherCommand}" /> -->
+            <!-- -->
+            <!-- <Label Text="{Binding WeatherText}"  -->
+            <!--        FontSize="20" -->
+            <!--        HorizontalOptions="Center" /> -->
+            <!-- <controls:WeatherCardView BindingContext="{Binding Weather}"/> -->
         </VerticalStackLayout>
     </ScrollView>
 
 </ContentPage>
+
+<!-- <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" -->
+<!--              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" -->
+<!--              xmlns:controls="clr-namespace:WeatherApp.UI.Controls" -->
+<!--              xmlns:viewModels="clr-namespace:WeatherApp.Core.ViewModels;assembly=WeatherApp.Core" -->
+<!--              x:DataType="viewModels:MainViewModel" -->
+<!--              x:Name="Root" -->
+<!--              x:Class="WeatherApp.UI.MainPage"> -->
+<!-- -->
+<!--     <ScrollView> -->
+<!--         <VerticalStackLayout Padding="30" Spacing="20"> -->
+<!--             ~1~ <controls:SearchBarView @1@ -->
+<!--             ~1~     Query="{Binding Query}"  @1@ -->
+<!--             ~1~     SearchCommand="{Binding SearchCommand}"/>            @1@ -->
+<!--             ~1~ <Button Text="Show Weather" @1@ -->
+<!--             ~1~         Command="{Binding LoadWeatherCommand}" /> @1@ -->
+<!--             ~1~ @1@ -->
+<!--             ~1~ <Label Text="{Binding WeatherText}"  @1@ -->
+<!--             ~1~        FontSize="20" @1@ -->
+<!--             ~1~        HorizontalOptions="Center" /> @1@ -->
+<!--             ~1~ <controls:WeatherCardView BindingContext="{Binding Weather}"/> @1@ -->
+<!--         </VerticalStackLayout> -->
+<!--     </ScrollView> -->
+<!-- -->
+<!-- </ContentPage> -->

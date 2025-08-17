@@ -15,14 +15,14 @@
 
       <!-- 1, 1 -->
       <Label Grid.Row="0" Grid.Column="0"
-             Text="{Binding TemperatureC, StringFormat='{}{0:0}°'}"
+             Text="{Binding CurrentWeather.Temperature, StringFormat='{}{0:0}°'}"
              Style="{StaticResource TitleLarge}"
              VerticalOptions="Start" />
         
 
       <!-- 1, 2 -->
       <VerticalStackLayout Spacing="6" Grid.Row="0" Grid.Column="1" >
-        <Label Text="{Binding City}" 
+        <Label Text="{Binding CurrentWeather.City}" 
                Style="{StaticResource H2}" 
                HorizontalTextAlignment="End"/>
         <Label Text="{Binding LocalTime, StringFormat='{}{0:HH:mm}'}"
@@ -33,10 +33,10 @@
       <!-- 2, 1 -->
       <HorizontalStackLayout Grid.Row="1" Grid.Column="0" Spacing="8">
         <Image
-          Source="{Binding Condition, Converter={StaticResource ConditionToIconConverter}}"
+          Source="{Binding CurrentWeather.Condition, Converter={StaticResource ConditionToIconConverter}}"
           HeightRequest="40" WidthRequest="40" />
         <Label
-          Text="{Binding Condition, Converter={StaticResource ConditionToTitleConverter}}"
+          Text="{Binding CurrentWeather.Condition, Converter={StaticResource ConditionToTitleConverter}}"
           Style="{StaticResource Caption}" 
           VerticalOptions="Center"/>
       </HorizontalStackLayout>
@@ -46,14 +46,14 @@
                              Spacing="6"
                              HorizontalOptions="End">
         <Image Source="wind.png" HeightRequest="40" WidthRequest="40" />
-        <Label Text="{Binding WindMs, StringFormat='{}{0:0.##} m/s'}"
+        <Label Text="{Binding CurrentWeather.WindMs, StringFormat='{}{0:0.##} m/s'}"
                Style="{StaticResource Caption}" 
                VerticalOptions="Center"/>
       </HorizontalStackLayout>
 
       <!-- 3, 1 -->
       <Label Grid.Row="2" Grid.Column="0"
-             Text="{Binding FeelsLikeC, StringFormat='Feels like: {0:0} °C'}"
+             Text="{Binding CurrentWeather.FeelsLikeTemperature, StringFormat='Feels like: {0:0} °C'}"
              Style="{StaticResource Caption}" />
 
       <!-- 3, 2 -->
@@ -61,11 +61,11 @@
              HorizontalTextAlignment="End">
         <Label.FormattedText>
           <FormattedString>
-            <Span Text="{Binding MinC, StringFormat='{}{0:0}°'}" 
+            <Span Text="{Binding CurrentWeather.MinTemperature, StringFormat='{}{0:0}°'}" 
                   Style="{StaticResource Caption}"/>
             <Span Text=" to " 
                   Style="{StaticResource Caption}"/>
-            <Span Text="{Binding MaxC, StringFormat='{}{0:0}°'}" 
+            <Span Text="{Binding CurrentWeather.MaxTemperature, StringFormat='{}{0:0}°'}" 
                   Style="{StaticResource Caption}"/>
           </FormattedString>
         </Label.FormattedText>

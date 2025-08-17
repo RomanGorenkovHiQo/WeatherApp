@@ -1,8 +1,9 @@
-﻿using WeatherApp.Data.Models.OpenWeather;
+﻿using WeatherApp.Core.Models.Weather;
+using WeatherApp.Core.ViewModels;
 
 namespace WeatherApp.Core.Interfaces;
 
 public interface IOpenWeatherService
 {
-    Task<WeatherResponse> GetWeatherByCityAsync(string city);
+    Task<CurrentWeather> GetWeatherByCityAsync(string city);
 }
